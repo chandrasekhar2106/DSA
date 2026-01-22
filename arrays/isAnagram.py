@@ -15,3 +15,16 @@ class isAnagram:
 
         return count_str1 == count_str2
     
+    def isAnagramWothASCI(self, str1, str2):
+        if len(str1) != len(str2):
+            return False
+        
+        count = [0] * 26
+        for i in range(len(str1)):
+            count[ord(str1[i]) - ord('a')] += 1
+            count[ord(str2[i]) - ord('a')] -= 1
+
+        for val in count:
+            if val != 0:
+                return False
+        return True
